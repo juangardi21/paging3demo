@@ -20,6 +20,8 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        buildConfigField("String", "API_KEY", API_KEY)
     }
 
     buildTypes {
@@ -41,7 +43,6 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion '1.5.21'
     }
     packagingOptions {
         resources {
@@ -94,5 +95,8 @@ dependencies {
 
     // Coil
     implementation "io.coil-kt:coil-compose:$coil_version"
+
+    //Accompanist
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
 
 }
