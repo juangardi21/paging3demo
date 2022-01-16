@@ -10,7 +10,7 @@ import com.android.paging3demo.util.Constants
 @Dao
 interface UnsplashRemoteKeysDao {
     @Query(GET_REMOTE_KEYS)
-    fun getRemoteKeys(id: String): UnsplashRemoteKeys
+    suspend fun getRemoteKeys(id: String): UnsplashRemoteKeys
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAllRemoteKeys(remoteKeys: List<UnsplashRemoteKeys>)

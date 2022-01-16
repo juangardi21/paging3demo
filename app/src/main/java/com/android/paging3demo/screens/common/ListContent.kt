@@ -2,7 +2,6 @@ package com.android.paging3demo.screens.common
 
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -39,14 +38,12 @@ import com.android.paging3demo.model.User
 import com.android.paging3demo.model.UserLinks
 import com.android.paging3demo.ui.theme.Shapes
 import com.android.paging3demo.util.Constants.PARAMS_URL
-import com.android.paging3demo.util.Constants.URL_USER
 
 @ExperimentalCoilApi
 @Composable
 fun ListContent(
     items: LazyPagingItems<UnsplashImage>,
 ) {
-    Log.d("Juan Error", items.loadState.toString())
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -82,7 +79,7 @@ fun UnsplashItem(unsplashImage: UnsplashImage) {
             .clickable {
                 val browserIntent = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("$URL_USER${unsplashImage.urls.regular}$PARAMS_URL")
+                    Uri.parse("${unsplashImage.user.userLinks.html}$PARAMS_URL")
                 )
                 startActivity(context, browserIntent, null)
             }
