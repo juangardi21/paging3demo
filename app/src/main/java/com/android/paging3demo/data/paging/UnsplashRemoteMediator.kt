@@ -1,5 +1,6 @@
 package com.android.paging3demo.data.paging
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -56,8 +57,10 @@ class UnsplashRemoteMediator(
                 if (loadType == LoadType.REFRESH) {
                     unsplashImageDao.deleteAllImages()
                     unsplashRemoteKeysDao.deleteAllRemoteKeys()
+                    Log.d("RemoteMediator", "REFRESH")
                 }
 
+                Log.d("RemoteMediator", " 2222")
                 val keys = response.map { unsplashImage ->
                     UnsplashRemoteKeys(
                         id = unsplashImage.id,
