@@ -24,15 +24,11 @@ fun HomeScreen(
                 title = Screen.Home.name,
                 onSearchClicked = navigation
             )
-        },
-        content = {
-            ListContent(items = getAllImages)
         }
     )
-//    { paddingValues ->
-//        ListContent(
-//            items = getAllImages,
-//            paddingValues = paddingValues
-//        )
-//    }
+    {
+        ListContent(
+            items = getAllImages,
+        )
+    }
 }

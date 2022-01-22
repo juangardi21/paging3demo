@@ -1,6 +1,7 @@
 package com.android.paging3demo.data.remote
 
 import com.android.paging3demo.BuildConfig
+import com.android.paging3demo.model.SearchResult
 import com.android.paging3demo.model.UnsplashImage
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -18,9 +19,9 @@ interface UnsplashApi {
     @Headers(AUTHORIZATION)
     @GET(SEARCH_IMAGES)
     suspend fun searchImages(
-        @Query("page") page: Int,
+        @Query("query") query: String,
         @Query("per_page") perPage: Int
-    ): List<UnsplashImage>
+    ): SearchResult
 
     companion object{
         const val AUTHORIZATION = "Authorization: Client-ID ${BuildConfig.API_KEY}"
